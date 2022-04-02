@@ -1,0 +1,86 @@
+.no-wrap {
+  flex-wrap: nowrap;
+}
+.full-size {
+  height: 100vh;
+  background-color: rgb(242, 239, 242);
+  display: flex;
+}
+.card {
+  background-color: white;
+  height: 735px;
+  width: 1000px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  border-radius: 10px;
+  justify-items: center;
+}
+.tag {
+  background-color: rgb(233, 231, 231);
+  padding: 10px;
+  border-radius: 5px;
+}
+.test-grades {
+  margin-left: 25px;
+}
+.top-pad {
+  padding-top: 20px;
+}
+.circle {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 1px grey solid;
+  margin-bottom: 0;
+  align-self: center;
+  margin: 20px;
+  margin-top: 30px;
+}
+.search-bar {
+  width: 100%;
+  border: none;
+  border-bottom: 1px rgb(230, 228, 228) solid;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  padding-top: 20px;
+}
+.search-bar:focus {
+  outline: none;
+  border-bottom: rgb(219, 216, 216) 2px solid;
+  font-size: 20px;
+}
+.info {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+.details {
+  font-family: "Courier New", Courier, monospace;
+  color: grey;
+  font-size: 35px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.details:hover {
+  color: rgba(0, 0, 0, 1);
+}
+.student-name {
+  font-size: 30px;
+  font-weight: 700;
+  font-style: bold;
+}
+.lil-search-bar {
+  border: none;
+  border-bottom: 1px rgb(230, 228, 228) solid;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  width: 135px;
+  font-size: 15px;
+  padding-left: 0px;
+}
+.lil-search-bar:focus {
+  outline: none;
+  border-bottom: black 2px solid;
+}
+.no-space {
+  line-height: 20px;
+}
