@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { StudentsService } from './student-service/student-service.service';
 import { Student } from './models/student';
-import { fn } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-root',
@@ -28,11 +27,11 @@ export class AppComponent {
     })
   }
 
-  viewStudentDetails(i: number) {
+  viewStudentDetails(i: number): void {
     this.filteredStudents[i].details = !this.filteredStudents[i].details
   }
 
-  filter() {
+  filter():void {
       this.filteredStudents = this.students.filter((std) => {
         return (
           (std.firstName.toLowerCase() + " " + std.lastName.toLowerCase()).includes(this.searchedName.toLowerCase())
@@ -45,7 +44,7 @@ export class AppComponent {
     }
   }
   
-  addTag(email:string, tag: Event) {
+  addTag(email:string, tag: Event):void {
     if(!(tag.target as HTMLInputElement).value.length) {
       return
     }
@@ -54,7 +53,7 @@ export class AppComponent {
     (tag.target as HTMLInputElement).value = "";
   }
 
-  getCharacter(i: number) {
+  getCharacter(i: number): string {
     return this.filteredStudents[i].details == true ? "-" : "+";
   }
 }

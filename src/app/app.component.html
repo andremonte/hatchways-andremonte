@@ -1,4 +1,4 @@
-<div class="container-fluid full-size">
+<!-- <div class="container-fluid full-size">
   <div class="card mx-auto my-auto">
     <div class="row mx-4">
       <div class="w-100">
@@ -27,6 +27,66 @@
           <div class="row no-wrap">
             <span class="student-name my-auto">{{ student.firstName | uppercase }} {{ student.lastName | uppercase }}</span>
             <span (click)="viewStudentDetails(i)" class="details my-auto ml-auto pr-5">{{ getCharacter(i) }}</span>
+          </div>
+          <div class="skills">
+            <span class="d-block">Email: {{ student.email }}</span>
+            <span class="d-block">Company: {{ student.company }}</span>
+            <span class="d-block">Skill: {{ student.skill }}</span>
+            <span class="d-block pb-2">Average: {{ student.avg }}%</span>
+          </div>
+          <div *ngFor="let grades of student.grades; let i = index" [ngClass]="{ 'pb-2': i + 1 == student.grades.length && student.details}" class="no-space">
+            <span *ngIf="student.details">Test {{ i + 1 }}:<span class="test-grades">{{ grades }}%</span></span>
+          </div>
+          <div class="d-inline-flex" *ngFor="let tag of student.tags; let z = index">
+            <span *ngIf="student.tags.length" class="tag"
+              [ngClass]="{ 'ml-1': z >= 1, 'mt-1': student.details }">{{ tag }}</span>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Add a Tag"
+              class="top-pad lil-search-bar"
+              (keyup.enter)="addTag(student.email, $event)"
+            />
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid full-size">
+  <div class="card mx-auto my-auto">
+    <div class="row mx-4">
+      <div class="w-100">
+        <input
+          type="text"
+          placeholder="Search by name"
+          class="search-bar"
+          [(ngModel)]="searchedName"
+          (keyup)="filter()"
+        />
+        <input
+          type="text"
+          placeholder="Search by tag"
+          class="search-bar"
+          [(ngModel)]="searchedTag"
+          (keyup)="filter()"
+        />
+      </div>
+    </div>
+    <div class="info" *ngFor="let student of students | filter: searchedName : searchedTag; let i = index">
+      <div class="row py-3">
+        <div class="col-auto">
+          <img [src]="student.pic" alt="avatar" class="circle" />
+        </div>
+        <div class="col">
+          <div class="row no-wrap">
+            <span class="student-name my-auto">{{ student.firstName | uppercase }} {{ student.lastName | uppercase }}</span>
+             <!-- <span (click)="viewStudentDetails(i)" class="details my-auto ml-auto pr-5">{{ getCharacter(i) }}</span> -->
+             <span *ngIf="!student.details" (click)="viewStudentDetails(i)" class="details my-auto ml-auto pr-5">+</span>
+            <span *ngIf="student.details" (click)="viewStudentDetails(i)" class="details my-auto ml-auto pr-5">-</span>
           </div>
           <div class="skills">
             <span class="d-block">Email: {{ student.email }}</span>
